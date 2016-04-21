@@ -1,34 +1,70 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:fitsSystemWindows="true"
-    tools:context="net.allacalle.android.era030.CalcularFormula">
+    android:layout_height="match_parent" >
 
-    <android.support.design.widget.AppBarLayout
+    <!-- Header aligned to top -->
+    <LinearLayout
+        android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_alignParentTop="true"
+        android:background="#FC9"
+        android:orientation="horizontal"
+        android:gravity="center" >
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay" />
+        <Button
+            android:layout_width="0dp"
+            android:id="@+id/BtnAtras"
+            android:layout_height="wrap_content"
+            android:layout_margin="1dp"
+            android:layout_weight="1"
+            android:text="Atras"
+            android:textColor="#fff"
+            android:background="#3949AB"
+            android:gravity="left"
+            />
 
-    </android.support.design.widget.AppBarLayout>
 
-    <include layout="@layout/content_calcular_formula" />
+    </LinearLayout>
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab"
-        android:layout_width="wrap_content"
+    <!-- Footer aligned to bottom -->
+    <LinearLayout
+        android:id="@+id/footer"
+        android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        android:src="@android:drawable/ic_dialog_email" />
+        android:layout_alignParentBottom="true"
+        android:background="#E1BEE7"
+        android:gravity="center"
+        android:orientation="vertical"
+        >
+    </LinearLayout>
 
-</android.support.design.widget.CoordinatorLayout>
+    <!-- Scrollable Item below header and above footer -->
+    <ScrollView
+        android:id="@+id/scrollableContents"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_above="@id/footer"
+        android:background="#C5CAE9"
+        android:layout_below="@id/header"
+        android:fillViewport="false">
+
+        <LinearLayout
+            android:id="@+id/LytContenedor"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:ellipsize="none"
+            android:scrollHorizontally="false"
+            >
+        </LinearLayout>
+
+        <!-- Inflate the contents of the ScrollView dynamicaly -->
+
+    </ScrollView>
+
+</RelativeLayout>
+
